@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cms.Application\Cms.Application.csproj" />
+    <ProjectReference Include="..\Cms.Query\Cms.Query.csproj" />
+  </ItemGroup>
+
+</Project>
