@@ -15,27 +15,26 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Cms.Config
+namespace Cms.Config;
+
+public static class CmsBootstrapper
 {
-    public static class CmsBootstrapper
+    public static void RegisterShopDependency(this IServiceCollection services,string connectionString)
     {
-        public static void RegisterShopDependency(this IServiceCollection services,string connectionString)
-        {
-            InfrastructureBootstrapper.Init(services,connectionString);
+        InfrastructureBootstrapper.Init(services,connectionString);
 
-            services.AddMediatR(typeof(Directories).Assembly);
+        services.AddMediatR(typeof(Directories).Assembly);
 
-            services.AddMediatR(typeof(GetCategoryByIdQuery).Assembly);
+        services.AddMediatR(typeof(GetCategoryByIdQuery).Assembly);
 
-            services.AddTransient<IProductDomainService, ProductDomainService>();
-            services.AddTransient<IUserDomainService, UserDomainService>();
-            services.AddTransient<ICategoryDomainService, CategoryDomainService>();
-            services.AddTransient<ISellerDomainService, SellerDomainService>();
+        services.AddTransient<IProductDomainService, ProductDomainService>();
+        services.AddTransient<IUserDomainService, UserDomainService>();
+        services.AddTransient<ICategoryDomainService, CategoryDomainService>();
+        services.AddTransient<ISellerDomainService, SellerDomainService>();
 
 
-            services.AddValidatorsFromAssembly(typeof(CreateRoleCommandValidator).Assembly);
+        services.AddValidatorsFromAssembly(typeof(CreateRoleCommandValidator).Assembly);
 
-            services.InitFacadeDependency();
-        }
+        services.InitFacadeDependency();
     }
 }

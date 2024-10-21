@@ -7,7 +7,7 @@ using Common.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace Shop.Api.Controllers;
+namespace Cms.Api.Controllers;
 
 public class CategoryController : ApiController
 {

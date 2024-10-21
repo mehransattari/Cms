@@ -1,21 +1,20 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
 
-namespace Cms.Domain.ProductAgg
+namespace Cms.Domain.ProductAgg;
+
+public class ProductSpecification : BaseEntity
 {
-    public class ProductSpecification : BaseEntity
+    public ProductSpecification(string key, string value)
     {
-        public ProductSpecification(string key, string value)
-        {
-            NullOrEmptyDomainDataException.CheckString(key, nameof(key));
-            NullOrEmptyDomainDataException.CheckString(value, nameof(value));
+        NullOrEmptyDomainDataException.CheckString(key, nameof(key));
+        NullOrEmptyDomainDataException.CheckString(value, nameof(value));
 
-            Key = key;
-            Value = value;
-        }
-
-        public long ProductId { get; internal set; }
-        public string Key { get; private set; }
-        public string Value { get; private set; }
+        Key = key;
+        Value = value;
     }
+
+    public long ProductId { get; internal set; }
+    public string Key { get; private set; }
+    public string Value { get; private set; }
 }

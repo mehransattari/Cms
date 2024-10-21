@@ -2,13 +2,12 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Common.Application
+namespace Common.Application;
+
+public class CommonBootstrapper
 {
-    public class CommonBootstrapper
+    public static void Init(IServiceCollection service)
     {
-        public static void Init(IServiceCollection service)
-        {
-            service.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidationBehavior<,>));
-        }
+        service.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidationBehavior<,>));
     }
 }

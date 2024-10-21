@@ -1,6 +1,5 @@
 ﻿using Common.Query;
 using Common.Query.Filter;
-using Cms.Domain.UserAgg;
 using Cms.Domain.UserAgg.Enums;
 
 namespace Cms.Query.Users.DTOs;
